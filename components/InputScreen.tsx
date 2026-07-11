@@ -52,7 +52,7 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
           <span className="text-[17px] font-semibold tracking-[-0.01em]">AmIAutomatable</span>
         </div>
         <div className="flex items-center gap-3">
-          <a href="https://github.com/ramsai/amiautomatable" className="text-sm text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]">
+          <a href="https://github.com/ramsai676/amiautomatable" className="text-sm text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]">
             GitHub
           </a>
           <ThemeToggle />

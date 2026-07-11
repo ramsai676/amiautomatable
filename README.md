@@ -50,7 +50,7 @@ covers this comfortably.
 ## Run it
 
 ```bash
-git clone https://github.com/<you>/amiautomatable
+git clone https://github.com/ramsai676/amiautomatable
 cd amiautomatable
 npm install
 npm run dev      # http://localhost:3000
