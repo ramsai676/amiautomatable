@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react';
 import { InputScreen } from '@/components/InputScreen';
 import { Results } from '@/components/Results';
-import { analyzeJob, friendlyApiError } from '@/lib/claude';
+import { analyzeJob, friendlyApiError } from '@/lib/gemini';
 import { parseTasks } from '@/lib/scoring';
 import { getPreset } from '@/lib/roles';
 import type { Analysis } from '@/lib/types';
@@ -35,7 +35,7 @@ export default function Home() {
       return;
     }
     if (!apiKey.trim()) {
-      setError('Custom analysis calls the Claude API from your browser — paste your Anthropic API key (or pick a pre-analyzed role above, no key needed).');
+      setError('Custom analysis calls the Gemini API from your browser — paste your Google AI Studio key (free) (or pick a pre-analyzed role above, no key needed).');
       return;
     }
     setBusy(true);

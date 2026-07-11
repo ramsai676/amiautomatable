@@ -27,7 +27,7 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('aia-key');
+      const saved = localStorage.getItem('aia-gemini-key');
       if (saved) {
         setApiKey(saved);
         setKeyOpen(true);
@@ -38,7 +38,7 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
   const saveKey = (v: string) => {
     setApiKey(v);
     try {
-      localStorage.setItem('aia-key', v);
+      localStorage.setItem('aia-gemini-key', v);
     } catch {}
   };
 
@@ -52,7 +52,7 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
           <span className="text-[17px] font-semibold tracking-[-0.01em]">AmIAutomatable</span>
         </div>
         <div className="flex items-center gap-3">
-          <a href="https://github.com/anirudhr/amiautomatable" className="text-sm text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]">
+          <a href="https://github.com/ramsai/amiautomatable" className="text-sm text-[var(--ink-2)] transition-colors hover:text-[var(--ink)]">
             GitHub
           </a>
           <ThemeToggle />
@@ -61,9 +61,9 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
 
       <main className="mx-auto max-w-4xl px-6 pb-24">
         {/* hero */}
-        <section className="mx-auto max-w-2xl pt-12 text-center sm:pt-16">
+        <section className="hero-glow mx-auto max-w-2xl pt-12 text-center sm:pt-16">
           <h1 className="rise rise-1 text-balance text-4xl font-semibold leading-[1.08] tracking-[-0.02em] sm:text-[52px]">
-            Which parts of your job can AI already do?
+            Which parts of your job can AI <span className="grad-text">already do</span>?
           </h1>
           <p className="rise rise-2 mx-auto mt-5 max-w-xl text-pretty text-[17px] leading-relaxed text-[var(--ink-2)]">
             Not someday — today, with tools anyone can buy. An honest task-by-task breakdown:
@@ -83,7 +83,7 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
                 <button
                   key={r.slug}
                   onClick={() => onPreset(r.slug)}
-                  className="pressable group rounded-2xl border p-4 text-left transition-colors hover:border-[var(--brand)]"
+                  className="pressable card-lift group rounded-2xl border p-4 text-left"
                   style={{ borderColor: 'var(--hairline)', background: 'var(--surface)', boxShadow: 'var(--shadow-card)' }}
                 >
                   <p className="text-[14px] font-medium leading-snug">{r.role}</p>
@@ -138,23 +138,23 @@ export function InputScreen({ onPreset, onAnalyze, busy, error }: Props) {
           >
             <summary className="flex cursor-pointer list-none items-center gap-2 text-[13px] font-medium text-[var(--ink-2)]">
               <KeyIcon className="h-4 w-4 text-[var(--ink-3)]" />
-              Anthropic API key — required for custom analysis
+              Google Gemini API key — required for custom analysis (free tier works)
             </summary>
             <input
               type="password"
               value={apiKey}
               onChange={(e) => saveKey(e.target.value)}
-              placeholder="sk-ant-…"
+              placeholder="AIza…"
               className="mt-3 w-full rounded-lg border bg-transparent px-3 py-2 font-mono text-[13px] outline-none focus:border-[var(--brand)]"
               style={{ borderColor: 'var(--hairline-strong)' }}
             />
             <p className="mt-2 text-[12px] leading-relaxed text-[var(--ink-3)]">
               This is a static page with no backend — your key stays in your browser and calls
-              Anthropic directly. Stored only in your own localStorage. Get one at{' '}
-              <a href="https://console.anthropic.com" className="underline underline-offset-2" style={{ color: 'var(--brand)' }}>
-                console.anthropic.com
+              Google directly. Stored only in your own localStorage. Get a free key at{' '}
+              <a href="https://aistudio.google.com/apikey" className="underline underline-offset-2" style={{ color: 'var(--brand)' }}>
+                aistudio.google.com/apikey
               </a>
-              . One analysis costs a few rupees.
+              . The free tier covers this comfortably.
             </p>
           </details>
 

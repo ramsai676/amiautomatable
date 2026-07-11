@@ -41,9 +41,11 @@ analyst, sales exec, teacher — hand-calibrated against what deployed AI tools
 actually do in 2026.
 
 **2. Your exact job (bring your own API key).** Paste your job title and real
-weekly tasks; Claude analyzes them with the same calibration rubric. This is a
+weekly tasks; Gemini analyzes them with the same calibration rubric. This is a
 static page with **no backend** — your key lives in your browser's localStorage
-and calls Anthropic directly. One analysis costs a few rupees.
+and calls Google directly. Get a free key at
+[aistudio.google.com/apikey](https://aistudio.google.com/apikey); the free tier
+covers this comfortably.
 
 ## Run it
 
@@ -56,9 +58,9 @@ npm test         # scoring + role-library test suite
 npm run build    # static export to out/
 ```
 
-Stack: Next.js 14 (static export) · TypeScript · Tailwind ·
-[@anthropic-ai/sdk](https://github.com/anthropics/anthropic-sdk-typescript)
-(browser mode, structured outputs). No backend, no analytics, no tracking.
+Stack: Next.js 14 (static export) · TypeScript · Tailwind · Gemini API
+(`gemini-2.5-flash`, schema-enforced JSON responses, called straight from the
+browser). No backend, no analytics, no tracking.
 
 ## Calibration rubric
 
@@ -69,9 +71,9 @@ Stack: Next.js 14 (static export) · TypeScript · Tailwind ·
 | 35–59 | Real speed-up, but human judgment carries the outcome |
 | 0–34 | Fundamentally human: trust, presence, accountability, relationships |
 
-Overall exposure = mean across tasks. The custom analysis prompts Claude with
-this exact rubric and returns schema-validated JSON (`output_config.format`),
-so results are structurally guaranteed.
+Overall exposure = mean across tasks. The custom analysis prompts Gemini with
+this exact rubric and constrains the response with a `responseSchema`, then
+re-validates client-side — so results are structurally guaranteed.
 
 ## Part of the "Unnoticed" series
 

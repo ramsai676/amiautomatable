@@ -3,6 +3,7 @@
 import { breakdown, exposureScore, verdict } from '@/lib/scoring';
 import { CATEGORY_META, type Analysis, type Category } from '@/lib/types';
 import { ThemeToggle } from './ThemeToggle';
+import { AnimatedNumber } from './motion-bits';
 import { ArrowLeftIcon, BoltIcon, BookIcon, BotMark, HandshakeIcon, ShieldIcon } from './icons';
 
 interface Props {
@@ -73,7 +74,7 @@ export function Results({ analysis, source, onBack }: Props) {
         <section className="rise rise-1 pt-10 text-center">
           <p className="text-[15px] font-medium text-[var(--ink-2)]">{analysis.role}</p>
           <p className="mt-4 text-[72px] font-semibold leading-none tracking-[-0.03em]" style={{ fontVariantNumeric: 'tabular-nums' }}>
-            {score}
+            <AnimatedNumber value={score} />
             <span className="text-[40px] text-[var(--ink-3)]">%</span>
           </p>
           <p className="mt-1 text-[15px] font-semibold" style={{ color: BAND_COLOR[v.band] }}>
@@ -106,7 +107,7 @@ export function Results({ analysis, source, onBack }: Props) {
           {(Object.keys(CATEGORY_META) as Category[]).map((c) => (
             <div
               key={c}
-              className="rounded-2xl border p-4"
+              className="card-lift rounded-2xl border p-4"
               style={{ borderColor: 'var(--hairline)', background: 'var(--surface)', boxShadow: 'var(--shadow-card)' }}
             >
               <div className="flex items-center justify-between">
@@ -200,7 +201,7 @@ export function Results({ analysis, source, onBack }: Props) {
         <p className="mt-8 text-center text-[12px] leading-relaxed text-[var(--ink-3)]">
           {source === 'preset'
             ? 'Pre-analyzed role — for your exact job, run a custom analysis with your own task list.'
-            : 'Analyzed by Claude from your task list — scores reflect tools shipping today.'}
+            : 'Analyzed by Gemini from your task list — scores reflect tools shipping today.'}
           <br />
           Not career advice from an oracle. A mirror with a number on it.
         </p>
