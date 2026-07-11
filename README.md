@@ -9,6 +9,8 @@ plus what to learn next.
 
 </div>
 
+![AmIAutomatable demo](docs/demo.gif)
+
 ![Results view](docs/result-light.png)
 
 ## The problem nobody notices
