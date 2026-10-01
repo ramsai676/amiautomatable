@@ -1,6 +1,18 @@
-<div align="center">
+<!-- header:start -->
+<p align="center">
+  <img src=".github/banner.png" alt="AmIAutomatable: Which parts of your job can AI already do? A task-by-task exposure breakdown." width="100%">
+</p>
 
-# AmIAutomatable
+<p align="center">
+  <a href="https://ramsai676.github.io/amiautomatable/"><img src="https://img.shields.io/badge/Live%20demo-Open%20in%20browser-34d399?style=for-the-badge" alt="Live demo"></a>
+  <img src="https://img.shields.io/badge/-TypeScript-1f2937?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-3b82f6?style=flat-square" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/tests-included-22c55e?style=flat-square" alt="Tests included">
+</p>
+
+<!-- header:end -->
+
+<div align="center">
 
 **Which parts of your job can AI already do?**
 
